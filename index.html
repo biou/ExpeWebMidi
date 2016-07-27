@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <script src="js/stream.js"></script>
+        <script src="js/midifile.js"></script>
+        <script src="js/replayer.js"></script>
+        <script src="js/synth.js"></script>
+        <script src="js/audio.js"></script>
+        <script src="js/tools.js"></script>
+    </head>
+    <script type="text/javascript">
+        
+        function transpose(item) {
+            if (item.subtype == 'noteOn') {
+                item.noteNumber += 5;
+            }
+            return item;
+        }
+
+        function filter(midi) {
+            midi.tracks[2].forEach(transpose);
+            return midi;
+        }
+
+    </script>
+    <body>
+        <a href="javascript:void(play('midi/sml.mid'))">SuperMarioLand2 - Finish</a>
+    </body>
+</html>
